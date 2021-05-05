@@ -14,6 +14,7 @@ class BasePageLocators:
     MY_ACCOUNT_BUTTON_DROPDOWN = (By.CSS_SELECTOR, '.fa.fa-user')
     MY_ACCOUNT_REGISTER_BUTTON = (By.XPATH, '//a[text() = "Register"]')
     MY_ACCOUNT_LOGIN_BUTTON = (By.XPATH, '//a[text() = "Login"]')
+    MY_ACCOUNT_MY_ACCOUNT_BUTTON = (By.CSS_SELECTOR, '.dropdown [title="My Account"]')
     # WISH LIST
     WISH_LIST_BUTTON = (By.ID, 'wishlist-total')
     # CART
@@ -55,8 +56,9 @@ class BasePageLocators:
     NEWSLETTER = (By.CSS_SELECTOR, '.col-sm-3 [href="http://localhost/index.php?route=account/newsletter"]')
     OPENCART_URL_FOOTER = (By.CSS_SELECTOR, '.container [href="http://www.opencart.com"]')
 
+
 class UserTableLocators():
-    # Table available from Login, Register and Wishlist pages
+    # Table available from Login, Register, My Account and Wishlist pages
     LOGIN_CELL = (By.CSS_SELECTOR, '#column-right [href="http://localhost/index.php?route=account/login"]')
     REGISTER_CELL = (By.CSS_SELECTOR, '#column-right [href="http://localhost/index.php?route=account/register"]')
     FORGOTTEN_PASS_2 = (By.CSS_SELECTOR, '#column-right [href="http://localhost/index.php?route=account/forgotten"]')
@@ -72,15 +74,15 @@ class UserTableLocators():
     TRANSACTIONS_CELL = (By.CSS_SELECTOR, '#column-right [href="http://localhost/index.php?route=account/transaction"]')
     NEWSLETTER_CELL = (By.CSS_SELECTOR, '#column-right [href="http://localhost/index.php?route=account/newsletter"')
 
+
 class LoginPageLocators(UserTableLocators):
     REG_ACC_CONTINUE_BUTTON = (By.CSS_SELECTOR, '.well [href="http://localhost/index.php?route=account/register"]')
     EMAIL_HOLDER = (By.ID, 'input-email')
     PASSWORD_HOLDER = (By.ID, 'input-password')
     LOGIN_BUTTON = (By.CSS_SELECTOR, '[value="Login"].btn.btn-primary')
     FORGOTTEN_PASS_1 = (By.CSS_SELECTOR, '.form-group [href="http://localhost/index.php?route=account/forgotten"]')
-    # CUSTOMER ACTIONS\INFO TABLE
 
 
+class AccountPageLocators(UserTableLocators):
 
-class AccountPage():
-    pass
+    LOGOUT_CELL = (By.CSS_SELECTOR, '#column-right [href="http://localhost/index.php?route=account/logout"]')
