@@ -5,7 +5,7 @@ from locators.locators import BasePageLocators
 
 
 class BasePage():
-    def __init__(self, browser, url, timeout=12):
+    def __init__(self, browser, url='http://localhost', timeout=12):
         self.browser = browser
         self.url = url
         self.browser.implicity_wait(timeout)
@@ -21,11 +21,13 @@ class BasePage():
         account_dropdown = self.browser.find_element(*BasePageLocators.MY_ACCOUNT_BUTTON_DROPDOWN)
         account_dropdown.click()
         register = self.browser.find_element(*BasePageLocators.MY_ACCOUNT_REGISTER_BUTTON)
+        register.click()
 
     def go_to_login_page_from_header(self):
         account_dropdown = self.browser.find_element(*BasePageLocators.MY_ACCOUNT_BUTTON_DROPDOWN)
         account_dropdown.click()
-        register = self.browser.find_element(*BasePageLocators.MY_ACCOUNT_LOGIN_BUTTON)
+        login = self.browser.find_element(*BasePageLocators.MY_ACCOUNT_LOGIN_BUTTON)
+        login.click()
 
     # Only for authorized user! Otherwise redirect to login page!
     def go_to_wishlist_page_from_header(self):
