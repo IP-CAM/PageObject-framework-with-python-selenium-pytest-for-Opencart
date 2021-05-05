@@ -55,27 +55,31 @@ class BasePageLocators:
     NEWSLETTER = (By.CSS_SELECTOR, '.col-sm-3 [href="http://localhost/index.php?route=account/newsletter"]')
     OPENCART_URL_FOOTER = (By.CSS_SELECTOR, '.container [href="http://www.opencart.com"]')
 
+class UserTableLocators():
+    # Table available from Login, Register and Wishlist pages
+    LOGIN_CELL = (By.CSS_SELECTOR, '#column-right [href="http://localhost/index.php?route=account/login"]')
+    REGISTER_CELL = (By.CSS_SELECTOR, '#column-right [href="http://localhost/index.php?route=account/register"]')
+    FORGOTTEN_PASS_2 = (By.CSS_SELECTOR, '#column-right [href="http://localhost/index.php?route=account/forgotten"]')
+    MY_ACCOUNT_CELL = (By.CSS_SELECTOR, '#column-right [href="http://localhost/index.php?route=account/account"]')
+    ADDRESS_BOOK_CELL = (By.CSS_SELECTOR, '#column-right [href="http://localhost/index.php?route=account/address"]')
+    WISH_LIST_CELL = (By.CSS_SELECTOR, '#column-right [href="http://localhost/index.php?route=account/wishlist"]')
+    ORDER_HISTORY_CELL = (By.CSS_SELECTOR, '#column-right [href="http://localhost/index.php?route=account/order"]')
+    DOWNLOADS_CELL = (By.CSS_SELECTOR, '#column-right [href="http://localhost/index.php?route=account/download"]')
+    RECURRING_PAYMENTS_CELL = \
+        (By.CSS_SELECTOR, '#column-right [href="http://localhost/index.php?route=account/recurring"]')
+    REWARD_POINTS_CELL = (By.CSS_SELECTOR, '#column-right [href="http://localhost/index.php?route=account/reward"]')
+    RETURNS_CELL = (By.CSS_SELECTOR, '#column-right [href="http://localhost/index.php?route=account/return"]')
+    TRANSACTIONS_CELL = (By.CSS_SELECTOR, '#column-right [href="http://localhost/index.php?route=account/transaction"]')
+    NEWSLETTER_CELL = (By.CSS_SELECTOR, '#column-right [href="http://localhost/index.php?route=account/newsletter"')
 
-class LoginPageLocators():
+class LoginPageLocators(UserTableLocators):
     REG_ACC_CONTINUE_BUTTON = (By.CSS_SELECTOR, '.well [href="http://localhost/index.php?route=account/register"]')
     EMAIL_HOLDER = (By.ID, 'input-email')
     PASSWORD_HOLDER = (By.ID, 'input-password')
     LOGIN_BUTTON = (By.CSS_SELECTOR, '[value="Login"].btn.btn-primary')
     FORGOTTEN_PASS_1 = (By.CSS_SELECTOR, '.form-group [href="http://localhost/index.php?route=account/forgotten"]')
     # CUSTOMER ACTIONS\INFO TABLE
-    LOGIN = (By.CSS_SELECTOR, '#column-right [href="http://localhost/index.php?route=account/login"]')
-    REGISTER = (By.CSS_SELECTOR, '#column-right [href="http://localhost/index.php?route=account/register"]')
-    FORGOTTEN_PASS_2 = (By.CSS_SELECTOR, '#column-right [href="http://localhost/index.php?route=account/forgotten"]')
-    MY_ACCOUNT = (By.CSS_SELECTOR, '#column-right [href="http://localhost/index.php?route=account/account"]')
-    ADDRESS_BOOK = (By.CSS_SELECTOR, '#column-right [href="http://localhost/index.php?route=account/address"]')
-    WISH_LIST = (By.CSS_SELECTOR, '#column-right [href="http://localhost/index.php?route=account/wishlist"]')
-    ORDER_HISTORY = (By.CSS_SELECTOR, '#column-right [href="http://localhost/index.php?route=account/order"]')
-    DOWNLOADS = (By.CSS_SELECTOR, '#column-right [href="http://localhost/index.php?route=account/download"]')
-    RECURRING_PAYMENTS = (By.CSS_SELECTOR, '#column-right [href="http://localhost/index.php?route=account/recurring"]')
-    REWARD_POINTS = (By.CSS_SELECTOR, '#column-right [href="http://localhost/index.php?route=account/reward"]')
-    RETURNS = (By.CSS_SELECTOR, '#column-right [href="http://localhost/index.php?route=account/return"]')
-    TRANSACTIONS = (By.CSS_SELECTOR, '#column-right [href="http://localhost/index.php?route=account/transaction"]')
-    NEWSLETTER = (By.CSS_SELECTOR, '#column-right [href="http://localhost/index.php?route=account/newsletter"')
+
 
 
 class AccountPage():
