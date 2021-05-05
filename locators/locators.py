@@ -56,7 +56,7 @@ class BasePageLocators:
     OPENCART_URL_FOOTER = (By.CSS_SELECTOR, '.container [href="http://www.opencart.com"]')
 
 
-class LoginPage():
+class LoginPageLocators():
     REG_ACC_CONTINUE_BUTTON = (By.CSS_SELECTOR, '.well [href="http://localhost/index.php?route=account/register"]')
     EMAIL_HOLDER = (By.ID, 'input-email')
     PASSWORD_HOLDER = (By.ID, 'input-password')
@@ -76,3 +76,7 @@ class LoginPage():
     RETURNS = (By.CSS_SELECTOR, '#column-right [href="http://localhost/index.php?route=account/return"]')
     TRANSACTIONS = (By.CSS_SELECTOR, '#column-right [href="http://localhost/index.php?route=account/transaction"]')
     NEWSLETTER = (By.CSS_SELECTOR, '#column-right [href="http://localhost/index.php?route=account/newsletter"')
+
+
+class AccountPage():
+    pass
