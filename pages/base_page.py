@@ -1,6 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.support.wait import WebDriverWait
-import pytest
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import NoSuchElementException, TimeoutException
 from locators.locators import BasePageLocators
 
 
@@ -12,6 +13,30 @@ class BasePage():
 
     def open(self):
         self.browser.get(self.url)
+
+    def is_element_present(self, how, what):
+        try:
+            self.browser.find_element(how, what)
+        except NoSuchElementException:
+            return False
+        return True
+
+    def is_element_not_present(self, how, what, timeout=5):
+        try:
+            WebDriverWait(self.browser, timeout).until(EC.presence_of_element_located((how, what)))
+        except TimeoutException:
+            return True
+        return False
+
+    def is_element_disappeared(self, how, what, timeout=5):
+        # 1 - Poll frequency(sleep interval between calls),
+        # TimeoutException - iterable structure of exception classes ignored during calls
+        try:
+            WebDriverWait(self.browser, timeout, 1, TimeoutException).\
+                until_not(EC.presence_of_element_located((how, what)))
+        except TimeoutException:
+            return False
+        return True
 
     def go_to_contact_us_page_from_header(self):
         contact_us = self.browser.find_element(*BasePageLocators.CONTACT_US_BUTTON)
