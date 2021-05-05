@@ -1,4 +1,4 @@
-from locators.locators import LoginPageLocators, AccountPageLocators, BasePageLocators
+from locators.locators import LoginPageLocators
 
 from pages.base_page import BasePage
 
@@ -16,10 +16,6 @@ class LoginPage(BasePage):
         password_holder.send_keys(password)
         login_btn = self.browser.find_element(*LoginPageLocators.LOGIN_BUTTON)
         login_btn.click()
-
-    def should_be_authorized(self):
-        self.browser.find_element(*BasePageLocators.MY_ACCOUNT_BUTTON_DROPDOWN).click()
-        assert self.is_element_present(*BasePageLocators.MY_ACCOUNT_MY_ACCOUNT_BUTTON), "Probably you aint authorized"
 
     def go_to_forgotten_password_1(self):
         forgotten_password_1 = self.browser.find_element(*LoginPageLocators.FORGOTTEN_PASS_1)
