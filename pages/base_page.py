@@ -5,10 +5,10 @@ from locators.locators import BasePageLocators
 
 
 class BasePage():
-    def __init__(self, browser, url='http://localhost', timeout=12):
+    def __init__(self, browser, url='http://localhost', timeout=10):
         self.browser = browser
         self.url = url
-        self.browser.implicity_wait(timeout)
+        self.browser.implicitly_wait(timeout)
 
     def open(self):
         self.browser.get(self.url)
