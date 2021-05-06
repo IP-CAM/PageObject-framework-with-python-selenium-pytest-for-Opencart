@@ -1,15 +1,12 @@
 import pytest
 from pages.login_page import LoginPage
-from utilites.read_properties import ReadConfig
 
 
 class TestLogin:
-    def test_guest_can_login_from_login_page(self, browser):
-        url = ReadConfig.get_application_url()
-        email = ReadConfig.get_application_email()
-        password = ReadConfig.get_application_password()
-        page = LoginPage(browser, url=url)
+    def test_guest_can_login(self, browser):
+        page = LoginPage(browser)
         page.open()
+        page.go_to_login_page_from_header()
         page.should_be_login_page()
-        page.login(email=email, password=password)
+        page.login()
         page.should_be_authorized()
