@@ -41,7 +41,6 @@ class BasePage():
         self.browser.find_element(*BasePageLocators.MY_ACCOUNT_BUTTON_DROPDOWN).click()
         assert self.is_element_present(*BasePageLocators.MY_ACCOUNT_MY_ACCOUNT_BUTTON), "Probably you aint authorized"
 
-
     def go_to_contact_us_page_from_header(self):
         contact_us = self.browser.find_element(*BasePageLocators.CONTACT_US_BUTTON)
         contact_us.click()
