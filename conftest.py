@@ -3,7 +3,6 @@ from selenium import webdriver
 
 
 def pytest_addoption(parser):
-    # Аргумент для запуска тестов на определенном браузере
     parser.addoption("--browser_name",
                      action="store",
                      default="chrome",
