@@ -1,12 +1,15 @@
 from locators.locators import LoginPageLocators
 from pages.base_page import BasePage
+from utilites.read_properties import ReadConfig
 
 
 class LoginPage(BasePage):
     def should_be_login_page(self):
         assert 'login' in self.browser.current_url
 
-    def login(self, email: str, password: str):
+    def login(self):
+        email = ReadConfig.get_application_email()
+        password = ReadConfig.get_application_password()
         email_holder = self.browser.find_element(*LoginPageLocators.EMAIL_HOLDER)
         email_holder.clear()
         email_holder.send_keys(email)
