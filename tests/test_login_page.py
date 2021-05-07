@@ -14,6 +14,7 @@ class TestLogin:
         page.should_be_login_page()
         page.login()
         page.should_be_authorized()
+
     @allure.story("Check urls from header")
     @allure.severity('critical')
     def test_guest_can_go_to(self, browser):
