@@ -1,8 +1,12 @@
 import pytest
+import allure
 from pages.login_page import LoginPage
 
 
 class TestLogin:
+    @allure.feature("Login")
+    @allure.story("Login from login page with email and password")
+    @allure.severity('blocker')
     def test_guest_can_login(self, browser):
         page = LoginPage(browser)
         page.open()
@@ -10,7 +14,8 @@ class TestLogin:
         page.should_be_login_page()
         page.login()
         page.should_be_authorized()
-
+    @allure.story("Check urls from header")
+    @allure.severity('critical')
     def test_guest_can_go_to(self, browser):
         page = LoginPage(browser)
         page.open()
