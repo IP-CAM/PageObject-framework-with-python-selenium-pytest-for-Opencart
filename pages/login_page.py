@@ -19,6 +19,19 @@ class LoginPage(BasePage):
         login_btn = self.browser.find_element(*LoginPageLocators.LOGIN_BUTTON)
         login_btn.click()
 
+    def login_with_false_data(self, email, password):
+        email_holder = self.browser.find_element(*LoginPageLocators.EMAIL_HOLDER)
+        email_holder.clear()
+        email_holder.send_keys(email)
+        password_holder = self.browser.find_element(*LoginPageLocators.PASSWORD_HOLDER)
+        password_holder.clear()
+        password_holder.send_keys(password)
+        login_btn = self.browser.find_element(*LoginPageLocators.LOGIN_BUTTON)
+        login_btn.click()
+
+    def should_be_warning(self):
+        self.is_element_present(*LoginPageLocators.LOGIN_WARNING_PASS_OR_EMAIL)
+
     def go_to_forgotten_password_1(self):
         forgotten_password_1 = self.browser.find_element(*LoginPageLocators.FORGOTTEN_PASS_1)
         forgotten_password_1.click()
