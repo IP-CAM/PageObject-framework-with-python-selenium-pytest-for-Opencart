@@ -6,35 +6,38 @@ from utilites.read_properties import ReadConfig
 
 # Test configs
 existing_email = ReadConfig.get_application_email()
-existing_password = ReadConfig.get_application_password()
+valid_password = ReadConfig.get_application_password()
 
 
 class TestLogin:
     @allure.feature("Login")
     @allure.story("Login from login page with email and password")
     @allure.severity('blocker')
-    def test_guest_can_login(self, browser):
+    @pytest.mark.parametrize(
+        "email,password",
+        (existing_email, valid_password))
+    def test_guest_can_login(self, browser, email, password):
         page = LoginPage(browser)
         page.open()
         page.go_to_login_page_from_header()
         page.should_be_login_page()
-        page.login()
+        page.login(email, password)
         page.should_be_authorized()
 
     @allure.feature("Login")
     @pytest.mark.negative
     @pytest.mark.parametrize(
-        "email, password",
+        "email,password",
         [('', ''), (existing_email, ''),
          (existing_email, 'wrong_password'),
-         ('notexisting@email.com', existing_password)]
+         ('notexisting@email.com', valid_password)]
     )
     def test_guest_can_login_negative(self, browser, email, password):
         page = LoginPage(browser)
         page.open()
         page.go_to_login_page_from_header()
         page.should_be_login_page()
-        page.login_with_false_data(email, password)
+        page.login(email, password)
         page.should_be_warning()
 
     @allure.story("Check urls from header")

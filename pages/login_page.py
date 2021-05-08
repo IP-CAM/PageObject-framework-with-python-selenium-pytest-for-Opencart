@@ -7,9 +7,7 @@ class LoginPage(BasePage):
     def should_be_login_page(self):
         assert 'login' in self.browser.current_url
 
-    def login(self):
-        email = ReadConfig.get_application_email()
-        password = ReadConfig.get_application_password()
+    def login(self, email, password):
         email_holder = self.browser.find_element(*LoginPageLocators.EMAIL_HOLDER)
         email_holder.clear()
         email_holder.send_keys(email)
@@ -28,6 +26,7 @@ class LoginPage(BasePage):
         password_holder.send_keys(password)
         login_btn = self.browser.find_element(*LoginPageLocators.LOGIN_BUTTON)
         login_btn.click()
+
 
     def should_be_warning(self):
         self.is_element_present(*LoginPageLocators.LOGIN_WARNING_PASS_OR_EMAIL)
