@@ -81,6 +81,7 @@ class LoginPageLocators(UserTableLocators):
     PASSWORD_HOLDER = (By.ID, 'input-password')
     LOGIN_BUTTON = (By.CSS_SELECTOR, '[value="Login"].btn.btn-primary')
     FORGOTTEN_PASS_1 = (By.CSS_SELECTOR, '.form-group [href="http://localhost/index.php?route=account/forgotten"]')
+    LOGIN_WARNING_PASS_OR_EMAIL = (By.CSS_SELECTOR, 'fa fa-exclamation-circle')
 
 
 class AccountPageLocators(UserTableLocators):
