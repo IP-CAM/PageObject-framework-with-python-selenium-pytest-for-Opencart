@@ -21,6 +21,8 @@ class TestLogin:
         page.login()
         page.should_be_authorized()
 
+    @allure.feature("Login")
+    @pytest.mark.negative
     @pytest.mark.parametrize(
         "email, password",
         [('', ''), (existing_email, ''),
