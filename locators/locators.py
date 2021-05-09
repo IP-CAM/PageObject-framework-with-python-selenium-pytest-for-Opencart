@@ -57,7 +57,7 @@ class BasePageLocators:
     OPENCART_URL_FOOTER = (By.CSS_SELECTOR, '.container [href="http://www.opencart.com"]')
 
 
-class UserTableLocators():
+class UserTableLocators:
     # Table available from Login, Register, My Account and Wishlist pages
     LOGIN_CELL = (By.CSS_SELECTOR, '#column-right [href="http://localhost/index.php?route=account/login"]')
     REGISTER_CELL = (By.CSS_SELECTOR, '#column-right [href="http://localhost/index.php?route=account/register"]')
@@ -88,3 +88,16 @@ class LoginPageLocators(UserTableLocators):
 class AccountPageLocators(UserTableLocators):
 
     LOGOUT_CELL = (By.CSS_SELECTOR, '#column-right [href="http://localhost/index.php?route=account/logout"]')
+
+
+class RegisterPageLocators:
+    FIRST_NAME_HOLDER = (By.CSS_SELECTOR, "#input-firstname")
+    LAST_NAME_HOLDER = (By.CSS_SELECTOR, "#input-lastname")
+    EMAIL_HOLDER = (By.CSS_SELECTOR, "#input-email")
+    TELEPHONE_HOLDER = (By.CSS_SELECTOR, "#input-telephone")
+    PASSWORD_HOLDER = (By.CSS_SELECTOR, "#input-password")
+    PASSWORD_CONFIRM_HOLDER = (By.CSS_SELECTOR, "#input-confirm")
+    SUBSCRIBE_RADIO_BTN_YES = (By.CSS_SELECTOR, ".radio-inline [value='1']")
+    SUBSCRIBE_RADIO_BTN_NO = (By.CSS_SELECTOR, ".radio-inline [value='0']")
+    PRIVACY_POLICE_CHECK_FIELD = (By.CSS_SELECTOR, ".pull-right [name='agree']")
+    CONFIRM_BUTTON = (By.CSS_SELECTOR, ".btn.btn-primary[value='Continue']")
