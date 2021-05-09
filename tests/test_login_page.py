@@ -15,7 +15,7 @@ class TestLogin:
     @allure.severity('blocker')
     @pytest.mark.parametrize(
         "email,password",
-        (existing_email, valid_password))
+        [(existing_email, valid_password)])
     def test_guest_can_login(self, browser, email, password):
         page = LoginPage(browser)
         page.open()
@@ -25,6 +25,7 @@ class TestLogin:
         page.should_be_authorized()
 
     @allure.feature("Login")
+    @allure.severity('critical')
     @pytest.mark.negative
     @pytest.mark.parametrize(
         "email,password",

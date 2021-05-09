@@ -17,17 +17,6 @@ class LoginPage(BasePage):
         login_btn = self.browser.find_element(*LoginPageLocators.LOGIN_BUTTON)
         login_btn.click()
 
-    def login_with_false_data(self, email, password):
-        email_holder = self.browser.find_element(*LoginPageLocators.EMAIL_HOLDER)
-        email_holder.clear()
-        email_holder.send_keys(email)
-        password_holder = self.browser.find_element(*LoginPageLocators.PASSWORD_HOLDER)
-        password_holder.clear()
-        password_holder.send_keys(password)
-        login_btn = self.browser.find_element(*LoginPageLocators.LOGIN_BUTTON)
-        login_btn.click()
-
-
     def should_be_warning(self):
         self.is_element_present(*LoginPageLocators.LOGIN_WARNING_PASS_OR_EMAIL)
 
@@ -54,3 +43,6 @@ class LoginPage(BasePage):
     def go_to_my_account_page_from_login_table(self):
         my_account = self.browser.find_element(*LoginPageLocators.MY_ACCOUNT_CELL)
         my_account.click()
+
+    def should_be_authorized(self):
+        assert self.is_element_present(*LoginPageLocators.LOGOUT_CELL), "Probably you ain't authorized"
