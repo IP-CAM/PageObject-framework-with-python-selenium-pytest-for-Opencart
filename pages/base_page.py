@@ -1,6 +1,7 @@
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException, TimeoutException
+
 from locators.locators import BasePageLocators
 
 
@@ -36,8 +37,6 @@ class BasePage():
         except TimeoutException:
             return False
         return True
-
-
 
     def go_to_contact_us_page_from_header(self):
         contact_us = self.browser.find_element(*BasePageLocators.CONTACT_US_BUTTON)
