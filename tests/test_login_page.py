@@ -27,11 +27,11 @@ class TestLogin:
         page.go_to_login_page_from_header()
         self.logger.info("********* Move to login page *********")
         page.should_be_login_page()
-        self.logger.info("********* Try to login with existing email and valid password *********")
+        self.logger.info(f"********* Try to login with {email} and {password} *********")
         page.login(email, password)
         page.should_be_authorized()
         self.logger.info("********* Authorization is successful *********")
-        self.logger.info("********* Test guest can login is passed *********")
+        self.logger.info("********* Test 'guest can login' is passed *********")
 
     @allure.feature("Login")
     @allure.severity('critical')
