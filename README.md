@@ -6,6 +6,11 @@ Allure
 python -m pytest --alluredir results       # test run with allure data generation
 allure serve results                       # launch local server with allure reports
 __________________________________________________________________________________________________________________
+Jenkins
+
+
+
+__________________________________________________________________________________________________________________
 Docker
 
 docker-compose.yml                     # configuration fail
