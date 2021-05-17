@@ -1,7 +1,13 @@
 # OpenCartPetProject
 PageObject framework on python\selenium for opencart online store
-
 __________________________________________________________________________________________________________________
+Allure
+
+python -m pytest --alluredir results       # test run with allure data generation
+allure serve results                       # launch local server with allure reports
+__________________________________________________________________________________________________________________
+Docker
+
 docker-compose.yml                     # configuration fail
 docker-compose up                      # launch conteiner
 docker-compose up -d                   # detached launch
