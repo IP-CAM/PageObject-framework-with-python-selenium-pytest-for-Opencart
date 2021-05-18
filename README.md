@@ -1,4 +1,4 @@
-# OpenCartPetProject
+# OpenCarProject
 PageObject framework on python\selenium for opencart online store
 __________________________________________________________________________________________________________________
 Allure
