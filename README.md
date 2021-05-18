@@ -7,6 +7,7 @@ python -m pytest --alluredir results       # test run with allure data generatio
 allure serve results                       # launch local server with allure reports
 __________________________________________________________________________________________________________________
 Jenkins
+java -jar jenkins.war --httpPort=9090      # start jenkins from his folder
 
 
 
